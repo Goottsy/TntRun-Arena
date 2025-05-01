@@ -30,7 +30,7 @@ repositories {
 }
 
 dependencies {
-    compileOnly "org.spigotmc:spigot-api:1.21.1-R0.1-SNAPSHOT" // Asegúrate de que estás usando la versión correcta de Spigot
+    compileOnly "org.spigotmc:spigot-api:1.21.4-R0.1-SNAPSHOT" // Asegúrate de que estás usando la versión correcta de Spigot
     implementation "co.aikar:acf-paper:0.5.1-SNAPSHOT" // Aikar's Commands Framework para Paper
 
     compileOnly("org.projectlombok:lombok:1.18.38")  // Lombok
@@ -71,7 +71,7 @@ processResources {
 }
 
 shadowJar {
-    archiveBaseName.set('Goottsy-GeoWareOddisey')
+    archiveBaseName.set('Goottsy-TntRunCore')
     archiveVersion.set('1.0')
     relocate 'co.aikar.commands', 'com.goottsy.acf'
     relocate 'co.aikar.locales', 'com.goottsy.locales'
@@ -80,6 +80,6 @@ shadowJar {
 build.dependsOn shadowJar
 
 jar {
-    archiveBaseName.set('Goottsy-GeoWareOddisey')
+    archiveBaseName.set('Goottsy-TntRunCore')
     archiveVersion.set('1.0')
 }

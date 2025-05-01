@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import com.goottsy.PluginTemplate;
+import com.goottsy.TntRunCore;
 import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -26,8 +26,8 @@ public class CompassGui {
     boolean target;
 
 
-    PluginTemplate instance;
-    public CompassGui(PluginTemplate instance) {
+    TntRunCore instance;
+    public CompassGui(TntRunCore instance) {
         this.instance = instance;
     }
 

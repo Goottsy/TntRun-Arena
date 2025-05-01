@@ -5,7 +5,7 @@ import co.aikar.commands.annotation.CommandAlias;
 import co.aikar.commands.annotation.CommandCompletion;
 import co.aikar.commands.annotation.CommandPermission;
 import co.aikar.commands.annotation.Subcommand;
-import com.goottsy.PluginTemplate;
+import com.goottsy.TntRunCore;
 import lombok.var;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -26,9 +26,9 @@ import static com.goottsy.Utils.Tools.*;
 @Subcommand("gps")
 @CommandPermission("admin.perm")
 public class GPSCMD extends BaseCommand {
-    private static PluginTemplate instance;
+    private static TntRunCore instance;
     private Location DestinyLocation;
-    public GPSCMD(PluginTemplate instance) {
+    public GPSCMD(TntRunCore instance) {
         this.instance = instance;
     }
     @Subcommand("remove")

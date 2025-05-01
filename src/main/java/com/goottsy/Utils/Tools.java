@@ -1,7 +1,6 @@
 package com.goottsy.Utils;
 
 import com.goottsy.Utils.Builders.ItemBuilder;
-import lombok.var;
 import net.md_5.bungee.api.ChatMessageType;
 import org.bukkit.*;
 import org.bukkit.entity.Player;
@@ -81,6 +80,11 @@ public class Tools {
         player.spigot().sendMessage(ChatMessageType.ACTION_BAR,new net.md_5.bungee.api.chat.TextComponent(message));
     }
 
+    public static void actionbarAll(String message) {
+        Bukkit.getOnlinePlayers().forEach(player -> {
+            player.spigot().sendMessage(ChatMessageType.ACTION_BAR,new net.md_5.bungee.api.chat.TextComponent(message));
+        });
+    }
     public static void playSoundall(String sound, float volume, float pitch) {
         Bukkit.getOnlinePlayers().forEach(player -> {
             Location loc = player.getLocation();

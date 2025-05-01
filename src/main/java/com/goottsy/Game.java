@@ -10,7 +10,7 @@ import static com.goottsy.Utils.Tools.consolecommand;
 
 @Data
 public class Game {
-    PluginTemplate instance;
+    TntRunCore instance;
     private FileConfiguration config;
     String TextGPS ="";
     CompassGui compassGui;
@@ -18,7 +18,7 @@ public class Game {
 
     //Class class;
 
-    public Game(PluginTemplate instance) {
+    public Game(TntRunCore instance) {
         this.instance = instance;
         this.config = instance.getConfig();
         this.compassGui = new CompassGui(instance);

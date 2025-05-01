@@ -1,6 +1,6 @@
-name: PluginTemplate
+name: TntRunCore
 version: '${project.version}'
-main: com.goottsy.PluginTemplate
+main: com.goottsy.TntRunCore
 api-version: '1.19'
 authors: [ Goottsy ]
 description: Un plugin con muchas cosas de ...
