@@ -1,0 +1,7 @@
+name: PluginTemplate
+version: '${project.version}'
+main: com.goottsy.PluginTemplate
+api-version: '1.19'
+authors: [ Goottsy ]
+description: Un plugin con muchas cosas de ...
+website: https://twitter.com/Goottsy

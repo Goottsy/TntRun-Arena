@@ -1,0 +1,85 @@
+plugins {
+    id 'com.gradleup.shadow' version '8.3.0'
+    id 'java'
+}
+
+group = 'com.goottsy'
+version = '1.0'
+
+sourceCompatibility = targetCompatibility = JavaVersion.VERSION_21
+
+repositories {
+    mavenCentral()
+    maven {
+        name 'KosmX\'s maven'
+        url = 'https://maven.kosmx.dev/'
+    }
+    maven {
+        name = "spigotmc-repo"
+        url = "https://hub.spigotmc.org/nexus/content/repositories/snapshots/"
+    }
+    maven {
+        name = "sonatype"
+        url = "https://oss.sonatype.org/content/groups/public/"
+    }
+    maven { url = "https://repo.aikar.co/content/groups/aikar/" }
+    maven { url = "https://hub.spigotmc.org/nexus/content/groups/public/" }
+    maven {
+        url = 'https://repo.extendedclip.com/releases/'
+    }
+}
+
+dependencies {
+    compileOnly "org.spigotmc:spigot-api:1.21.1-R0.1-SNAPSHOT" // Asegúrate de que estás usando la versión correcta de Spigot
+    implementation "co.aikar:acf-paper:0.5.1-SNAPSHOT" // Aikar's Commands Framework para Paper
+
+    compileOnly("org.projectlombok:lombok:1.18.38")  // Lombok
+    annotationProcessor("org.projectlombok:lombok:1.18.38")
+
+    testCompileOnly("org.projectlombok:lombok:1.18.38")
+    testAnnotationProcessor("org.projectlombok:lombok:1.18.38")
+
+    compileOnly group: "com.comphenix.protocol", name: "ProtocolLib", version: "4.8.0" // ProtocolLib
+    compileOnly 'me.clip:placeholderapi:2.11.6'
+}
+
+def targetJavaVersion = 21
+java {
+    def javaVersion = JavaVersion.toVersion(targetJavaVersion)
+    sourceCompatibility = javaVersion
+    targetCompatibility = javaVersion
+    if (JavaVersion.current() < javaVersion) {
+        toolchain.languageVersion = JavaLanguageVersion.of(targetJavaVersion)
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+
+    if (targetJavaVersion >= 10 || JavaVersion.current().isJava10Compatible()) {
+        options.release.set(targetJavaVersion)
+    }
+}
+
+processResources {
+    filesMatching('plugin.yml') {
+        expand(
+                'project': project,
+                'version': project.version
+        )
+    }
+}
+
+shadowJar {
+    archiveBaseName.set('Goottsy-GeoWareOddisey')
+    archiveVersion.set('1.0')
+    relocate 'co.aikar.commands', 'com.goottsy.acf'
+    relocate 'co.aikar.locales', 'com.goottsy.locales'
+}
+
+build.dependsOn shadowJar
+
+jar {
+    archiveBaseName.set('Goottsy-GeoWareOddisey')
+    archiveVersion.set('1.0')
+}
