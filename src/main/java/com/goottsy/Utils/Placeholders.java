@@ -1,6 +1,6 @@
 package com.goottsy.Utils;
 
-import com.goottsy.PluginTemplate;
+import com.goottsy.TntRunCore;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import org.bukkit.entity.Player;
 
@@ -8,9 +8,9 @@ import org.bukkit.entity.Player;
 
 public class Placeholders extends PlaceholderExpansion {
 
-    private PluginTemplate plugin;
+    private TntRunCore plugin;
 
-    public Placeholders(PluginTemplate plugin) {
+    public Placeholders(TntRunCore plugin) {
         this.plugin = plugin;
     }
 

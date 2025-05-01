@@ -3,7 +3,7 @@ package com.goottsy.Utils;
 import co.aikar.commands.BukkitCommandCompletionContext;
 import co.aikar.commands.CommandCompletions;
 import com.google.common.collect.ImmutableList;
-import com.goottsy.PluginTemplate;
+import com.goottsy.TntRunCore;
 import org.bukkit.Material;
 
 import java.util.Arrays;
@@ -14,11 +14,11 @@ import java.util.stream.Collectors;
 
 
 public class Types {
-    PluginTemplate instance;
+    TntRunCore instance;
 
-    public Types(PluginTemplate instance){
+    public Types(TntRunCore instance){
         this.instance = instance;
-        CommandCompletions<BukkitCommandCompletionContext> commandCompletions = PluginTemplate.commandManager.getCommandCompletions();
+        CommandCompletions<BukkitCommandCompletionContext> commandCompletions = TntRunCore.commandManager.getCommandCompletions();
 //        commandCompletions.registerAsyncCompletion("items", c -> {
 //            Collection<String> items = Arrays.asList(Game.Items.values()).stream().map(e -> e.toString()).collect(Collectors.toList());
 //            return items;
