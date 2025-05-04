@@ -1,8 +1,6 @@
 package com.goottsy;
 
 import co.aikar.commands.PaperCommandManager;
-import com.goottsy.Utils.Placeholders;
-import com.goottsy.Utils.Types;
 import com.goottsy.commands.MainCMD;
 import lombok.Getter;
 import org.bukkit.Bukkit;
@@ -16,6 +14,7 @@ public final class TntRunCore extends JavaPlugin {
 
     public static TntRunCore instance;
     public static PaperCommandManager commandManager;
+
 	@Getter
     private Game game;
     private TntGame tntGame;
@@ -24,14 +23,14 @@ public final class TntRunCore extends JavaPlugin {
         instance = this;
         commandManager = new PaperCommandManager(this);
 		game = new Game(this);
-        new Types(this);
+
         World world = getServer().getWorlds().get(0);
         tntGame = new TntGame(world);
+
         commandManager.registerCommand(new MainCMD(this));
 
         registerListener(new MainListeners(this));
 
-        registerPlaceholders();
         getLogger().info( green(instance.getName() + " ha sido Activado 1.0"));
     }
 
@@ -52,12 +51,5 @@ public final class TntRunCore extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(listener, instance);
     }
 
-    public void registerPlaceholders() {
-        if(Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null){
-            new Placeholders(this).register();
-            getLogger().info( green("GoottsyTools: Placeholders Activadas"));}
-
-        else {getLogger().info( red("GoottsyTools: Placeholders Desactivadas"));}
-    }
 
 }
